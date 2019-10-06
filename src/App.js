@@ -6,8 +6,8 @@ const App  = () => (
     <Router>
         <div>
             <Route path="/" exact component={Landing} />
-            {/* <Route path="/about/" component={About} />
-            <Route path="/users/" component={Users} /> */}
+            {/* <Route path="/about/" component={register} />
+            <Route path="/users/" component={about_us} /> */}
         </div>
     </Router>
 )
