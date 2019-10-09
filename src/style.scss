@@ -2,3 +2,15 @@
 /*components*/
 @import 'Components/Layout/Header/style';
 
+
+@import '../src/Components/content/SignUp/style';
+@import '../src/Components/content/Home/style';
+@import '../src/Components/content/Login/style';
+
+
+.body{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+

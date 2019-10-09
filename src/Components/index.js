@@ -7,6 +7,14 @@ import Header from './Layout/Header';
 import {signout} from './../services/fire';
 import Home from './content/Home';
 import theme from './theme';
+import Paper from '@material-ui/core/Paper';
+import image from './../Components/assets/fondo.jpg';
+const  styles={
+ paperContainer:{
+
+   backgroundImage: `url(${image})`
+ }}
+
 function Main() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
@@ -25,7 +33,7 @@ function Main() {
     return (
       <main className="main">
         
-            
+      
         <MuiThemeProvider theme={theme}>
             {
             isAuth ?  
@@ -36,7 +44,7 @@ function Main() {
           }   
                </MuiThemeProvider>
          
-                   
+        
       </main>
     )
   }

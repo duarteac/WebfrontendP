@@ -4,8 +4,11 @@ import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+
+
 function Home() {
   return (
+
     <Grid container component="main" className="container">
     <Grid item xs={12} sm={6} md={7} className="home home-left">
       <div className="content">
@@ -31,6 +34,7 @@ function Home() {
       </div>
     </Grid>
     </Grid>
+   
   );
 }
 
