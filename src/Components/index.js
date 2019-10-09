@@ -9,10 +9,13 @@ import Home from './content/Home';
 import theme from './theme';
 import Paper from '@material-ui/core/Paper';
 import image from './../Components/assets/fondo.jpg';
+
 const  styles={
  paperContainer:{
-
+   
    backgroundImage: `url(${image})`
+    
+   
  }}
 
 function Main() {
@@ -37,10 +40,13 @@ function Main() {
         <MuiThemeProvider theme={theme}>
             {
             isAuth ?  
+            <Paper style={styles.paperContainer} >
               <Private setAuthentication={setAuthentication} />
+              </Paper>
             :  
+              <Paper style={styles.paperContainer}>
               <Public setAuthentication={setAuthentication} />
-        
+              </Paper>
           }   
                </MuiThemeProvider>
          

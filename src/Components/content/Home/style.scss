@@ -6,11 +6,13 @@
 }
 .content {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    background-color: #F4F6F8;
+    text-align: center;
+    //display: flex;
+    //flex-direction: column;
+    //margin-top: 40px;
+    //background-color: #F4F6F8;
 }
+
 
 .contentBody {
     flex-grow: 1;

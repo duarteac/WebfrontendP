@@ -12,7 +12,7 @@ function About() {
   return (
       
     <html className="all">
-        <header className= "header">
+        <header className= "head">
           <nav className = "nav"> 
           <AppBar position= 'static' color ="000001"> 
               <toolbar> 
