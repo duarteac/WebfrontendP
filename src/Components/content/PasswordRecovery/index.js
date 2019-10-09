@@ -66,10 +66,13 @@ function PasswordRecovery() {
         <form onSubmit={handleSubmit} >
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
+            <Typography
+            align = 'center'>
             <Logo />
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" align = 'center'> 
               Recupera tu contraseña
             </Typography>
           </Grid>

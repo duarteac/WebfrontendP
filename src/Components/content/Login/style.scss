@@ -1,0 +1,43 @@
+.root {
+    height: 100%;
+}
+.grid {
+    margin-top: 30;
+}
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: #F4F6F8;
+}
+
+.contentBody {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+
+.form {
+    padding-left: 100;
+    padding-right: 100;
+    padding-bottom: 125;
+    flex-basis: 700;
+}
+.title {
+    margin-top: 3;
+    color: #1438A6;
+    padding: 15px;
+}
+.sugestion {
+    margin-top: 2;
+}
+.textField{
+    margin-top: 2;
+}
+.signInButton {
+    margin: spacing(2, 0);
+    padding: 5px;
+}

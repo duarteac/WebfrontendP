@@ -93,18 +93,10 @@ function SignUp(props) {
           <div  className="contentBody">
             <form
               className= "form"
-            > 
-             <Typography
-
-  align = 'center'>
-     <Logo />
-</Typography>
-           
-
+            > <Logo />
               <Typography
                 className="title"
                 variant="h2"
-                align = 'center'
               >
                 Registrarme
               </Typography>

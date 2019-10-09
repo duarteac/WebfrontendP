@@ -6,16 +6,18 @@ import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper';
 import {Link} from 'react-router-dom';
 
+import './style.scss';
 function About() {
 
   return (
+      
     <html className="all">
         <header className= "header">
           <nav className = "nav"> 
-          <AppBar position= 'static'>
+          <AppBar position= 'static' color ="000001"> 
               <toolbar> 
                   
-          <Button color="inherit"> <Link to="/Home"> Home </Link> </Button>
+          <Button color="inherit"> <Link to="/"> Home </Link> </Button>
           <Button color="inherit"><Link to="/SignUp"> Register</Link></Button>
           <Button color="inherit"><Link to="/Login"> Login</Link></Button>
           </toolbar>

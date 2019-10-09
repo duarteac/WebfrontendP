@@ -9,9 +9,9 @@ function Home() {
     <Grid container component="main" className="container">
     <Grid item xs={12} sm={6} md={7} className="home home-left">
       <div className="content">
-      <Typography component="h6" variant="h6">Sigue lo que te interesa.</Typography>
-      <Typography component="h6" variant="h6">Entérate de lo que está hablando la gente.</Typography>
-      <Typography component="h6" variant="h6">Únete a la conversación.</Typography>
+      <Typography component="h6" variant="h6">Esto idealmente sería el home de hades.</Typography>
+      <Typography component="h6" variant="h6">idealmete...</Typography>
+      <Typography component="h6" variant="h6">Home en progreso.</Typography>
         
         </div>
     </Grid>
@@ -19,14 +19,15 @@ function Home() {
 
 
     <div className="content">
-        <Typography component="h5" variant="h5">Descubre lo que está pasando en el mundo en este momento</Typography>
-        <Typography component="p">Únete hoy a myTwitter.</Typography>
+        <Typography component="h5" variant="h5">Bienvenido a Hades</Typography>
+        <Typography component="p">:D .</Typography>
         
 
 
-        <Typography component="p">¿Ya tienes cuenta? <Link to="/login">¿Inicia sesión?</Link></Typography>
-        <Typography component="p">¿Nuevo en myTwitter? <Link to="/signup">Regístrate ahora »</Link></Typography>
-        <Typography component="p">About us <Link to="/About"> About»</Link></Typography>
+        <Typography component="p">¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link></Typography>
+        <Typography component="p">¿Deseas Registrarte? <Link to="/signup">Únete »</Link></Typography>
+        <Typography component="p">¿Deseas Conocer mas de nosotros? <Link to="/About">Acerca de »</Link></Typography>
+        <Typography component="p">¿No recuerdas tu contraseña? <Link to="/PasswordRecovery">Click aquí para obtenerla »</Link></Typography>
       </div>
     </Grid>
     </Grid>

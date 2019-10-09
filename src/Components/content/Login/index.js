@@ -11,7 +11,10 @@ import {login} from './../../../services/fire';
  
 import Logo from './../../utils/logo';
 import Loading from './../../utils/loading';
- 
+import { makeStyles } from '@material-ui/core/styles';
+import './style.scss';
+
+
 function Login(props) {
   
     const [variant, setVariant] = React.useState('');
@@ -57,66 +60,97 @@ function Login(props) {
         }
       };
     return (
-        <Container component="main" maxWidth="xs" className="login">
-       
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={12}>
-                <Logo />
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <Typography component="h1" variant="h5">
-                Inicia sesión en myTwitter
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo"
-                  type="email"
-                  name="email"
-                  autoComplete="email"              
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Contraseña"
-                  type="password"
-                  id="password"              
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
+      <form  onSubmit={handleSubmit}>
+        <div className="root">
+          <Grid
+            container
+            className="grid"
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid
+              item
+              className="content"
+              lg={7}
+              xs={12}
             >
-              Inicia sesión
-            </Button>
-            </Grid>
-              <Grid item xs={12}>
-                <Typography component="p">¿Ya tienes cuenta? <Link to="/passwordRecovery">¿Olvidaste tu contraseña?</Link></Typography>
-                <Typography component="p">¿Nuevo en myTwitter? <Link to="/signup">Regístrate ahora »</Link></Typography>
-  
-              </Grid>
-            </Grid>
-          </form>
-        
-        
+              <div className="content">
+                
+                <div className="contentBody">
+                  <form
+                    className= "form"
+                  >
+                      <Typography
+                     align = 'center'
+                     
+                     >
+                     <Logo />
+
+                     </Typography>
+                   
+                    <Typography
+                      className="title"
+                      variant="h2"
+                      align = 'center'
+                    >
+                      
+                      Iniciar Sesión
+                    </Typography>
+                    
+                    <TextField
+                      fullWidth
+                      className="textField"
+                      label="Email"
+                      name="email"
+                      type="email"
+                      variant="outlined"
+                      value = {email}
+                      onChange = {e => setEmail(e.target.value)}
+                    />
+                    <TextField
+                      fullWidth
+                      className="textField"
+                      label="Contraseña"
+                      name="password"
+                      type="password"
+                      variant="outlined"
+                      value = {password}
+                      onChange =  {e => setPassword(e.target.value)}
+                    />
+                    <Button
+                      color="primary"
+                      className="signInButton"
+                      fullWidth
+                      size="large"
+                      type="submit"
+                      variant="contained"
+
+                    >
+                      INICIAR SESIÓN
+                    </Button>
+                    <Typography
+                      color="#D92588"
+                      variant="body1"
+                    >
          
-    </Container>
-    );
-    }  
+                     
+                    </Typography>
+                    
+            <Grid item xs={12}>
+              <Typography component="p">¿No tienes cuenta? <Link to="/SignUp">¿Desea Registrarse?</Link></Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography component="p">¿No recuerdas tu clave? <Link to="/PasswordRecovery">Click aquí para obtenerla</Link></Typography>
+            </Grid>
+                  </form>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+        </form>
+      );
+    }
+    
     export default Login;
