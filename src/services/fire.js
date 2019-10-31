@@ -2,6 +2,9 @@ import firebase from 'firebase';
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/firebase-storage';
+
 
  firebase.initializeApp({
     apiKey: "AIzaSyCgiT9wzMdwJN5hUMaRtTTogjoPRDpFMus",
@@ -22,6 +25,7 @@ import 'firebase/auth';
 });
 
 const auth = firebase.auth();
+const based = firebase.firestore();
 export const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
   }
@@ -33,5 +37,15 @@ export const login = (email, password) => {
   }
   export const passwordRecovery = (email) => {
     return auth.sendPasswordResetEmail(email);
+  }
+  export const adduser = (userid,name,email) =>{
+    return based
+    .collection("user")
+    .doc(userid)
+    .set({
+      nombre: name,
+      correo:email
+
+    })
   }
  
