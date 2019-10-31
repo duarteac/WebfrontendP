@@ -6,6 +6,7 @@ import 'firebase/firestore';
 import 'firebase/firebase-storage';
 
 
+
  firebase.initializeApp({
     apiKey: "AIzaSyCgiT9wzMdwJN5hUMaRtTTogjoPRDpFMus",
     authDomain: "hades-3f914.firebaseapp.com",
@@ -25,7 +26,7 @@ import 'firebase/firebase-storage';
 });
 
 const auth = firebase.auth();
-const based = firebase.firestore();
+const db = firebase.firestore();
 export const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
   }
@@ -38,8 +39,18 @@ export const login = (email, password) => {
   export const passwordRecovery = (email) => {
     return auth.sendPasswordResetEmail(email);
   }
+
+ 
+ export const update = (userid,email,name) =>{
+   return db.collection("user").doc(userid).update({
+
+      name:name,
+      email:email
+   });
+ } 
+
   export const adduser = (userid,name,email) =>{
-    return based
+    return db
     .collection("user")
     .doc(userid)
     .set({
@@ -49,3 +60,4 @@ export const login = (email, password) => {
     })
   }
  
+
