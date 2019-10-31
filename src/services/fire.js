@@ -3,6 +3,8 @@ import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/firebase-storage';
+
 
 
  firebase.initializeApp({
@@ -37,6 +39,7 @@ export const login = (email, password) => {
   export const passwordRecovery = (email) => {
     return auth.sendPasswordResetEmail(email);
   }
+
  
  export const update = (userid,email,name) =>{
    return db.collection("user").doc(userid).update({
@@ -45,3 +48,16 @@ export const login = (email, password) => {
       email:email
    });
  } 
+
+  export const adduser = (userid,name,email) =>{
+    return db
+    .collection("user")
+    .doc(userid)
+    .set({
+      nombre: name,
+      correo:email
+
+    })
+  }
+ 
+
