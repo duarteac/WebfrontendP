@@ -5,6 +5,7 @@ import Login from './Login/';
 import  PasswordRecovery from './PasswordRecovery/';
 import SignUp from './SignUp/'; 
 import About from './About/';
+import Users from './Users';
  
 function Public(props) {
   return (
@@ -15,6 +16,7 @@ function Public(props) {
         <Route path="/SignUp" render={()=><SignUp setAuthentication={props.setAuthentication} />} />
         <Route path="/PasswordRecovery" component={PasswordRecovery} />
         <Route path="/About" component={About} />
+        <Route path="/Users" component={Users}/>
       </BrowserRouter>
     </main>
   );

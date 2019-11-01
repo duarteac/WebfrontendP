@@ -9,6 +9,7 @@ import Home from './content/Home';
 import theme from './theme';
 import Paper from '@material-ui/core/Paper';
 import image from './../Components/assets/fondo.jpg';
+import Users from './content/Users';
 
 const  styles={
  paperContainer:{
@@ -41,7 +42,7 @@ function Main() {
             {
             isAuth ?  
             <Paper style={styles.paperContainer} >
-              <Private setAuthentication={setAuthentication} />
+              <Users setAuthentication={setAuthentication} />
               </Paper>
             :  
               <Paper style={styles.paperContainer}>

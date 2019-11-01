@@ -29,17 +29,33 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 export const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
-  }
-  export const signup = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
-  }
-  export const signout = () => {
-    return auth.signOut();
-  }
-  export const passwordRecovery = (email) => {
-    return auth.sendPasswordResetEmail(email);
-  }
+}
+export const signup = (email, password) => {
+  return auth.createUserWithEmailAndPassword(email, password);
+}
+export const signout = () => {
+  return auth.signOut();
+}
+export const passwordRecovery = (email) => {
+  return auth.sendPasswordResetEmail(email);
+}
 
+
+const db = firebase.firestore();
+export const getUsers = () =>{
+  const usr = [];
+  let users = db.collection('user');
+  let allUsers = users.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      usr.push(doc.data());
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+  return usr
+}
  
  export const update = (userid,email,name) =>{
    return db.collection("user").doc(userid).update({
@@ -59,5 +75,4 @@ export const login = (email, password) => {
 
     })
   }
- 
 
