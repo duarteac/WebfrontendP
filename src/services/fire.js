@@ -40,8 +40,6 @@ export const passwordRecovery = (email) => {
   return auth.sendPasswordResetEmail(email);
 }
 
-
-const db = firebase.firestore();
 export const getUsers = () =>{
   const usr = [];
   let users = db.collection('user');
