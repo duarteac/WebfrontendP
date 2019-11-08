@@ -6,11 +6,14 @@ import  PasswordRecovery from './PasswordRecovery/';
 import SignUp from './SignUp/'; 
 import About from './About/';
 import Users from './Users';
+
+
  
 function Public(props) {
   return (
     <main>
       <BrowserRouter>
+      
         <Route path="/" exact component={Home} />
         <Route path="/Login" render={()=><Login setAuthentication={props.setAuthentication} />} />
         <Route path="/SignUp" render={()=><SignUp setAuthentication={props.setAuthentication} />} />
