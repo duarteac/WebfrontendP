@@ -1,62 +1,45 @@
 import React from 'react';
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField';
-import {update} from './../../services/fire';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import {BrowserRouter,Route} from 'react-router-dom';
 import theme from '../theme';
-import{addImage} from './../../services/fire';
+import {Link} from 'react-router-dom';
+import Profile from './Profile';
+import Gestionmesas from './Gestionmesas'
+import Productos from './Productos '
+import Pedidos from './Pedidos'
+import {AppBar, Tabs, Tab} from '@material-ui/core'
+
+
 function Private(props) {
-
-  const [name, setName] = React.useState('');
-
 
   const signout = () => {
     props.setAuthentication(false);
   }
-  const updateuser= () =>{
-    var id = sessionStorage.getItem('user');
-    update(id, name)
-    console.log("update succes")
-  }
-  
-  function previewFile() {
-    var preview = document.querySelector('img');
-    var fileloaded   = document.querySelector('input[type=file]');
-    
-    if(file== null ){
-      return null ;
-    }
-    var file = fileloaded.files[0];
-    var url = addImage("perfil/"+sessionStorage.getItem("user"),file);
-
-    var reader  = new FileReader();
-
-    reader.onloadend = function () {
-      preview.src = reader.result;
-    }
-  
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = "";
-    }
-    return reader;
-  }
 
   return (
     <React.Fragment>
+      <BrowserRouter>
       <MuiThemeProvider theme ={theme}>
-  
-          <h1>Private</h1>
-          <input type="file" onChange= {event =>previewFile()}></input>
-         <img src="" height="200" alt="Image preview..."></img>
-          <Button onClick={ updateuser }>actualizar usuario</Button>
-          <TextField defaultValue="nombre"
-          onChange = {e => setName(e.target.value)}
-          />
-          
-          <Button onClick={signout}>Logout</Button>
+      <AppBar >
+        <Tabs 
+        centered>
+          <Link to ="/Profile"> <Tab label= "perfil"/></Link>
+         <Link to = "/Gestionmesas"><Tab label="mesas" /></Link>
+         <Link to = "/Productos"><Tab label="productos" /></Link>
+         <Link to = "/Pedidos"><Tab label="pedidos" /></Link>
+        </Tabs>
+      </AppBar>
+        <div>
+          <h1>Private</h1> 
+          </div>
+      <Route exact path="/Profile" render={()=><Profile/>} />
+      <Route exact path="/Gestionmesas" render={()=><Gestionmesas/>} />
+      <Route exact path="/Productos" render={()=><Productos/>} />
+      <Route exact path="/Pedidos" render={()=><Pedidos/>} />
+      <Button onClick={signout}>Logout</Button>
       </MuiThemeProvider>
+      </BrowserRouter>
     </React.Fragment>
   );
 }
