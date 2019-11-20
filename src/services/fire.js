@@ -55,12 +55,35 @@ export const getUsers = () =>{
   return usr
 }
  
- export const update = (userid,email,name) =>{
+ export const update = (userid,name) =>{
    return db.collection("user").doc(userid).update({
 
-      name:name,
-      email:email
+      name:name
    });
+ }  
+ export const addImage= (name, file)=>{
+   var storageRef = firebase.storage().ref();
+   var ref = storageRef.child(name);
+
+   ref.put(file).then(function(snapshot){
+     snapshot.ref.getDownloadURL.then(url =>{
+       var userRef = db.collection("user").doc(sessionStorage.getItem("user"));
+       var setwithmerger = userRef.set({
+         profileimg: url
+       },{merge:false});
+       return url;
+     })
+   })
+ }
+
+ export const getImage = name =>{
+var storageRef = firebase.storage().ref();
+var ref = storageRef.child(name);
+ref.getDownloadURL().then(url =>{
+  return url;
+})
+ }
+
  } 
 
   export const adduser = (userid,name,email) =>{
