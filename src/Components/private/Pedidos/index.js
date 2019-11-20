@@ -1,4 +1,5 @@
 import React from 'react'
+import Buttom  from '@material-ui/core/Button'
 
 
 function Pedidos(){
@@ -6,10 +7,10 @@ function Pedidos(){
     return(
     <React.Fragment>
         <h2>Pedidos</h2>
-        <Button>crear pedido</Button>
-        <Button>actualizar pedido</Button>
-        <Button>borrar pedido</Button>
-        <Button>listar pedidos</Button>
+        <Buttom>crear pedido</Buttom>
+        <Buttom>actualizar pedido</Buttom>
+        <Buttom>borrar pedido</Buttom>
+        <Buttom>listar pedidos</Buttom>
     </React.Fragment>
 
     );

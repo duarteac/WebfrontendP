@@ -77,14 +77,14 @@ export const getUsers = () =>{
  }
 
  export const getImage = name =>{
-var storageRef = firebase.storage().ref();
-var ref = storageRef.child(name);
-ref.getDownloadURL().then(url =>{
-  return url;
-})
- }
+    var storageRef = firebase.storage().ref();
+    var ref = storageRef.child(name);
+      ref.getDownloadURL().then(url =>{
+      return url;
+    })
+  }
 
- } 
+ 
 
   export const adduser = (userid,name,email) =>{
     return db

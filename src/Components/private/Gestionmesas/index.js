@@ -1,7 +1,7 @@
 import React from 'react'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from '../../theme';
-import {Buttom } from '@material-ui/core'
+import Buttom  from '@material-ui/core/Button'
 
 
 
