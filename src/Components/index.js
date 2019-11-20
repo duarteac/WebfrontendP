@@ -9,7 +9,9 @@ import Home from './content/Home';
 import theme from './theme';
 import Paper from '@material-ui/core/Paper';
 import image from './../Components/assets/fondo.jpg';
-
+import Users from './content/Users';
+import {Provider} from './../AuthContext';
+import {Consumer} from './../AuthContext';
 const  styles={
  paperContainer:{
    
@@ -39,14 +41,22 @@ function Main() {
       
         <MuiThemeProvider theme={theme}>
             {
-            isAuth ?  
-            <Paper style={styles.paperContainer} >
-              <Private setAuthentication={setAuthentication} />
-              </Paper>
-            :  
-              <Paper style={styles.paperContainer}>
-              <Public setAuthentication={setAuthentication} />
-              </Paper>
+             <Provider>
+                   <Consumer>
+                   {({isAuth}) => (
+ 
+                   isAuth ?  
+                       <Paper style={styles.paperContainer} >
+                       <Private  />
+                       </Paper>
+                          :  
+                       <Paper style={styles.paperContainer}>
+                       <Public />
+                       </Paper>
+                         )}
+                    </Consumer>
+               </Provider>
+
           }   
                </MuiThemeProvider>
          

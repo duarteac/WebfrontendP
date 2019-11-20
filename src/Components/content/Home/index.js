@@ -15,13 +15,17 @@ function Home() {
     <div className="content">
 
         <MuiThemeProvider theme={theme}>
+          
         <Typography component="h2" variant="h2">Bienvenido a Hades</Typography>
         <Logo/>
+
         <Typography component="p">¿Ya tienes cuenta? <Buttom><Link to="/login">Inicia sesión</Link></Buttom></Typography>
         <Typography component="p">¿Deseas Registrarte?<Buttom><Link to="/signup">Únete »</Link></Buttom></Typography>
         <Typography component="p">¿Deseas Conocer mas de nosotros? <Buttom><Link to="/About">Acerca de »</Link></Buttom></Typography>
         <Typography component="p">¿No recuerdas tu contraseña? <Buttom><Link to="/PasswordRecovery">Click aquí para obtenerla »</Link></Buttom></Typography>
+ 
         </MuiThemeProvider>
+        
       </div>
   
   

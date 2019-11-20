@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 
 import Logo from './../../utils/logo';
 //import Loading from './../../utils/Loading';
-import {signup} from './../../../services/fire';
+import {signup, adduser} from './../../../services/fire';
 
 import './style.scss';
 
@@ -33,6 +33,7 @@ function SignUp(props) {
         setLoading(true);
         signup(email, password)
         .then(user =>{
+            adduser(user.user.uid,name,email);
             setVariant('success');
             setMessage('Cuenta creada exitosamente');
             setOpen(true);

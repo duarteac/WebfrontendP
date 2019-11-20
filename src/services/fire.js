@@ -3,6 +3,8 @@ import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/firebase-storage';
+
 
 
  firebase.initializeApp({
@@ -27,16 +29,31 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 export const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
-  }
-  export const signup = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
-  }
-  export const signout = () => {
-    return auth.signOut();
-  }
-  export const passwordRecovery = (email) => {
-    return auth.sendPasswordResetEmail(email);
-  }
+}
+export const signup = (email, password) => {
+  return auth.createUserWithEmailAndPassword(email, password);
+}
+export const signout = () => {
+  return auth.signOut();
+}
+export const passwordRecovery = (email) => {
+  return auth.sendPasswordResetEmail(email);
+}
+
+export const getUsers = () =>{
+  const usr = [];
+  let users = db.collection('user');
+  let allUsers = users.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      usr.push(doc.data());
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+  return usr
+}
  
  export const update = (userid,name) =>{
    return db.collection("user").doc(userid).update({
@@ -66,3 +83,17 @@ ref.getDownloadURL().then(url =>{
   return url;
 })
  }
+
+ } 
+
+  export const adduser = (userid,name,email) =>{
+    return db
+    .collection("user")
+    .doc(userid)
+    .set({
+      nombre: name,
+      correo:email
+
+    })
+  }
+

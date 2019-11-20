@@ -9,16 +9,25 @@ import Gestionmesas from './Gestionmesas'
 import Productos from './Productos '
 import Pedidos from './Pedidos'
 import {AppBar, Tabs, Tab} from '@material-ui/core'
+import TextField from '@material-ui/core/TextField';
+import {update} from './../../services/fire';
+import {Consumer} from './../../AuthContext';
+import  {signout} from './../../services/fire';
 
 
 function Private(props) {
 
-  const signout = () => {
-    props.setAuthentication(false);
-  }
 
+  const handleSubmit = (evt, setAuth) => {
+    evt.preventDefault();
+    sessionStorage.clear();
+    signout();
+    setAuth(false);
+  }
+   
   return (
-    <React.Fragment>
+    <div>
+     <React.Fragment>
       <BrowserRouter>
       <MuiThemeProvider theme ={theme}>
       <AppBar >
@@ -41,6 +50,24 @@ function Private(props) {
       </MuiThemeProvider>
       </BrowserRouter>
     </React.Fragment>
+      <h1>Private</h1>
+
+      <Consumer>  
+      {({setAuth}) => (
+//llamado de la función que se ejecuta al hacer clic. Recibe como parámetro, el evento y la función que modifica el estado global
+          <form onSubmit={e=>handleSubmit(e, setAuth)}>    
+              <button
+              type="submit">
+                Cerrar sesión
+              </button>
+          </form>
+        )}
+
+      
+      </Consumer>  
+
+    </div>
+
   );
 }
 

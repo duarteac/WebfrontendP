@@ -8,11 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Snackbar from '@material-ui/core/Snackbar';
 import {login} from './../../../services/fire';
- 
+import {Consumer} from '../../../AuthContext';
 import Logo from './../../utils/logo';
 import Loading from './../../utils/loading';
 import { makeStyles } from '@material-ui/core/styles';
 import './style.scss';
+
 
 
 function Login(props) {
@@ -25,7 +26,7 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
    
-    const handleSubmit = (evt) => {
+    const handleSubmit = (evt,setAuth) => {
     
         evt.preventDefault();
         setLoading(true);
@@ -36,10 +37,11 @@ function Login(props) {
               setMessage('Usuario autorizado');
               setOpen(true);
               setTimeout(()=>{
-                props.setAuthentication(true);
+    
               
                 sessionStorage.setItem('user',user.user.uid); 
-                setLoading(false);                 
+                setLoading(false); 
+                setAuth(true);                
               }, 2000); 
           })
           .catch(err=>{
@@ -61,7 +63,10 @@ function Login(props) {
       };
     return (
      // <div className="prueba">
-      <form  onSubmit={handleSubmit}>
+     <Consumer>
+     {({setAuth}) => (
+
+<form  onSubmit={e=>handleSubmit(e, setAuth)}>
         <div className="root">
           <Grid
             container
@@ -118,8 +123,8 @@ function Login(props) {
                       variant="outlined"
                       value = {password}
                       onChange =  {e => setPassword(e.target.value)}
-                    />
-                    <Button
+                    />   
+                    <Button 
                       color="primary"
                       className="signInButton"
                       fullWidth
@@ -128,8 +133,10 @@ function Login(props) {
                       variant="contained"
 
                     >
+                      
                       INICIAR SESIÓN
-                    </Button>
+                      
+                    </Button>  
                     <Typography
                       color="#D92588"
                       variant="body1"
@@ -145,12 +152,15 @@ function Login(props) {
               <Typography component="p">¿No recuerdas tu clave? <Link to="/PasswordRecovery">Click aquí para obtenerla</Link></Typography>
             </Grid>
                   </form>
-                </div>
+                 </div>
               </div>
             </Grid>
           </Grid>
         </div>
         </form>
+         )}
+         </Consumer>
+     
        // </div>
       );
     }
