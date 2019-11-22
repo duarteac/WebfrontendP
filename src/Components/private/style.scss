@@ -1,0 +1,36 @@
+
+.bodypriv{
+   
+    align-items: center;
+    width : 100%;
+    margin: 0 auto;
+    height: 720px;
+    background: #ffc400   ;
+    .Bar{
+        color:black;
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        
+        
+      
+    }
+    
+    .tabs{
+        display:flex;
+        
+        justify-content: center;
+        vertical-align: center;
+        .loggo{
+            padding-right: 300px;
+            margin-right: 300px;
+            justify-content: left;
+        }
+        .cerrar{
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+        color:black;
+    }
+    
+}
