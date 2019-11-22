@@ -40,11 +40,30 @@ export const passwordRecovery = (email) => {
   return auth.sendPasswordResetEmail(email);
 }
 
-   
+export const getUsers = () =>{
+  const usr = [];
+  let users = db.collection('user');
+  let allUsers = users.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      usr.push(doc.data());
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+  return usr
+}
+ 
+ export const update = (userid,name) =>{
+   return db.collection("user").doc(userid).update({
+
+      name:name
+   });
+ }  
  export const addImage= (name, file)=>{
    var storageRef = firebase.storage().ref();
    var ref = storageRef.child(name);
-
    ref.put(file).then(function(snapshot){
      snapshot.ref.getDownloadURL.then(url =>{
        var userRef = db.collection("user").doc(sessionStorage.getItem("user"));
@@ -55,6 +74,14 @@ export const passwordRecovery = (email) => {
      })
    })
  }
+
+ export const getImage = name =>{
+    var storageRef = firebase.storage().ref();
+    var ref = storageRef.child(name);
+      ref.getDownloadURL().then(url =>{
+      return url;
+    })
+  }
 
  export const getImage = name =>{
     var storageRef = firebase.storage().ref();
