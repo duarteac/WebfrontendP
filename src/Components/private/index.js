@@ -6,7 +6,7 @@ import theme from '../theme';
 import {Link} from 'react-router-dom';
 import Profile from './Profile';
 import Gestionmesas from './Gestionmesas'
-import Productos from './Productos '
+import Productos from './Productos'
 import Pedidos from './Pedidos'
 import {AppBar, Tabs, Tab} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
