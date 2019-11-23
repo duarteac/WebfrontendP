@@ -1,7 +1,7 @@
 .rooti{
     width: 100%;
     height: 100%;
-      
+    background :#ef5350 ;
     display:  flex;
      
     justify-content: center;
@@ -9,15 +9,59 @@
 align-items: center;
 align-content: center;
  vertical-align: center;
- 
 
 .conti{
-    background: chartreuse;
+    background: white;
     display:flex;
     flex-direction: row;
     border: 5px solid black;
-    width : 400px  ;
-    height: 370px  ;
+    border-radius: 10px;
+    width : 500px  ;
+    height: 560px  ;
+  }
+  .Titulo{
+      border:5px solid black;
+      border-radius: 10px;
   }
 }
+ .text{
+     padding: 2px 2px 2px 2px;
+     color: black;
+     border: 5px solid white;
+     border-radius: 5px;
+     
+ }
  
+.content2{
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+align-content: center;
+ vertical-align: center;
+ justify-content: center;
+ 
+    background-color: white;
+    .organizar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    align-content: center;
+     vertical-align: center;
+     justify-content: center;
+     width: 200 ;
+    }
+}
+
+.content3{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .bt{
+        margin-top:25px;
+   }
+    background-color: white;
+  
+}
