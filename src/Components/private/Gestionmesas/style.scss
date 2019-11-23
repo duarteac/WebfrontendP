@@ -4,13 +4,15 @@ $textcolor: darkblue;
 $fontsize: 18px;
 
 /* Use the variables */
-.mainprod{
+.mainord{
   display:flex;
  background :#ef5350   ;
  padding-top : 40px;
  padding-bottom: 100px;
- .asideprod{
-   
+ .asideord{
+  .inside{
+    position: 'relative';
+  }
   background:white ;
   display:flex;
   flex-direction: column;
@@ -25,8 +27,9 @@ $fontsize: 18px;
   width:200px;
   border: 2px solid #000;
   border-radius:5px;
+  
 }
- .gridprod{
+ .gridord{
   padding-top: 60px;
   
  .Titleinv{
@@ -73,4 +76,9 @@ $fontsize: 18px;
   padding-top:40px;
   padding-bottom:40px;
    
+}
+.ordero{
+    Display:flex;
+    flex-direction: column;
+    
 }

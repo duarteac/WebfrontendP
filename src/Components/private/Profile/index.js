@@ -5,7 +5,9 @@ import {update} from './../../../services/fire';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from '../../theme';
 import{addImage} from './../../../services/fire';
-
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import './style.scss';
 const Profile = () => {
     const [name, setName] = useState('');
 
@@ -41,17 +43,21 @@ const Profile = () => {
     
 
      return (
+       <div className="rooti">
         <React.Fragment>
           <MuiThemeProvider theme ={theme}>
-              <h1>profile</h1>
+            <Grid classname="Conti">
+              <h1 className="Titulo"> SSSSSSSS</h1>
               <input type="file" onChange= {event =>previewFile()}></input>
              <img src="" height="200" alt="Image preview..."></img>
               <Button onClick={ updateuser }>actualizar usuario</Button>
               <TextField defaultValue="nombre"
               onChange = {e => setName(e.target.value)}
               />
+          </Grid>
           </MuiThemeProvider>
         </React.Fragment>
+        </div>
       );
  
 

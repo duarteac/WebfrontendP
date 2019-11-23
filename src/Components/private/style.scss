@@ -15,22 +15,37 @@
         
       
     }
-    
+    .Boto2{
+        
+        margin : 25px 5px 25px 5px;
+        margin-left: 100px; 
+        color: white;
+    }
+    .Boto{
+        
+        margin : 25px 5px 25px 5px;
+         
+        color: white;
+    }
     .tabs{
         display:flex;
         
         justify-content: center;
         vertical-align: center;
-        .loggo{
+      
+        color:black;
+    }
+    .linkt{
+        color:white;
+    }
+      .loggo{
             padding-right: 300px;
             margin-right: 300px;
             justify-content: left;
         }
         .cerrar{
             margin-left: 100px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-        color:black;
-    }
-    
+       
 }

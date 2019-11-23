@@ -42,6 +42,7 @@ const handleSubmit = (evt, setAuth) => {
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    marginBottom :  '40px',
   },
   seeMore: {
     marginTop: theme.spacing(3),
