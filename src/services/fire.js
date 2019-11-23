@@ -54,13 +54,7 @@ export const getUsers = () =>{
   });
   return usr
 }
- 
- export const update = (userid,name) =>{
-   return db.collection("user").doc(userid).update({
-
-      name:name
-   });
- }  
+  
  export const addImage= (name, file)=>{
    var storageRef = firebase.storage().ref();
    var ref = storageRef.child(name);
@@ -83,14 +77,6 @@ export const getUsers = () =>{
     })
   }
 
- export const getImage = name =>{
-    var storageRef = firebase.storage().ref();
-    var ref = storageRef.child(name);
-      ref.getDownloadURL().then(url =>{
-      return url;
-    })
-  }
-
 
   ///////adds
   export const adduser = (userid,name,email) =>{
@@ -103,12 +89,13 @@ export const getUsers = () =>{
     })
   }
 
-  export const addproduct = (productid,name,price) =>{
+  export const addproduct = (productid,name,price,description) =>{
     return db
     .collection("Product")
     .doc(productid)
     .set({
       nombre: name,
+      descripcion:description,
       precio: price
     })
   }
@@ -145,16 +132,15 @@ export const getUsers = () =>{
     return usr
   }
 
-  export const getproduct = () =>{
+  export const getproduct =  async() =>{
     const prodct = [];
-     db.collection("product").get().then(snapshot => {
-      snapshot.forEach(doc => {
-        prodct.push(doc.data());
-      });
-    })
-    .catch(err => {
-      console.log('Error getting products', err);
-    });
+    const success = await db.collection("Product").get()
+    if (success) {
+      success.forEach(doc => {
+          prodct.push(doc.data());
+          console.log(doc.data());
+        });
+      }
     return prodct 
   }
 
@@ -209,7 +195,6 @@ export const getUsers = () =>{
     });
  }
  ////delete
-
 
  export const delproduct = (productid) =>{
   return db.collection("product").doc(productid).delete();
