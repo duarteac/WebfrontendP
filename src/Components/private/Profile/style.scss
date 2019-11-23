@@ -1,0 +1,23 @@
+.rooti{
+    width: 100%;
+    height: 100%;
+      
+    display:  flex;
+     
+    justify-content: center;
+  
+align-items: center;
+align-content: center;
+ vertical-align: center;
+ 
+
+.conti{
+    background: chartreuse;
+    display:flex;
+    flex-direction: row;
+    border: 5px solid black;
+    width : 400px  ;
+    height: 370px  ;
+  }
+}
+ 

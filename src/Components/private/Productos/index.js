@@ -37,6 +37,7 @@ createData(4, '5', 'maracuyá', 'algo 5', 'E ', 212.79),
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    marginBottom :  '40px',
   },
   seeMore: {
     marginTop: theme.spacing(3),
@@ -83,7 +84,7 @@ return(
          
         <main className = "mainprod">
         <aside className="asideprod">
-        <h2>Opciones</h2>
+        <h2 className="opc">Opciones</h2>
          
         <Button variant="contained" color="primary" className={classes.button } href={'./crearproducto'}>   
         Crear Producto

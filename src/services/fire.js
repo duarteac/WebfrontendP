@@ -55,12 +55,6 @@ export const getUsers = () =>{
   return usr
 }
  
- export const update = (userid,name) =>{
-   return db.collection("user").doc(userid).update({
-
-      name:name
-   });
- }  
  export const addImage= (name, file)=>{
    var storageRef = firebase.storage().ref();
    var ref = storageRef.child(name);
@@ -83,13 +77,6 @@ export const getUsers = () =>{
     })
   }
 
- export const getImage = name =>{
-    var storageRef = firebase.storage().ref();
-    var ref = storageRef.child(name);
-      ref.getDownloadURL().then(url =>{
-      return url;
-    })
-  }
 
 
   ///////adds

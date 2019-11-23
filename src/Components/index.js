@@ -12,14 +12,8 @@ import image from './../Components/assets/fondo.jpg';
 import Users from './content/Users';
 import {Provider} from './../AuthContext';
 import {Consumer} from './../AuthContext';
-const  styles={
- paperContainer:{
-   
-   backgroundImage: `url(${image})`
-    
-   
- }}
-
+import './style.scss';
+ 
 function Main() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
@@ -36,7 +30,7 @@ function Main() {
     setIsAuth(val);
   }
     return (
-      <main className="main">
+      <main className="body3"    >
         
       
         <MuiThemeProvider theme={theme}>
@@ -46,13 +40,13 @@ function Main() {
                    {({isAuth}) => (
  
                    isAuth ?  
-                       <Paper style={styles.paperContainer} >
+                 
                        <Private  />
-                       </Paper>
+  
                           :  
-                       <Paper style={styles.paperContainer}>
+                       
                        <Public />
-                       </Paper>
+ 
                          )}
                     </Consumer>
                </Provider>

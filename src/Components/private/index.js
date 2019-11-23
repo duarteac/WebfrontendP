@@ -13,7 +13,8 @@ import TextField from '@material-ui/core/TextField';
 import {update} from './../../services/fire';
 import {Consumer} from './../../AuthContext';
 import  {signout} from './../../services/fire';
-
+import Logo from './../utils/logo';
+import './style.scss';
 
 function Private(props) {
 
@@ -26,17 +27,32 @@ function Private(props) {
   }
    
   return (
-    <div>
+    <div className ="bodypriv">
      <React.Fragment>
       <BrowserRouter>
       <MuiThemeProvider theme ={theme}>
-      <AppBar >
-        <Tabs 
+      <AppBar className = "Bar">
+        <Tabs className = "tabs"
         centered>
-          <Link to ="/Profile"> <Tab label= "perfil"/></Link>
-         <Link to = "/Gestionmesas"><Tab label="mesas" /></Link>
-         <Link to = "/Productos"><Tab label="productos" /></Link>
-         <Link to = "/Pedidos"><Tab label="pedidos" /></Link>
+          <Logo className="loggo"></Logo>
+         <Buttom className="Boto2" variant="contained" color="secondary" href="./Profile"> Perfil  </Buttom>
+         <Buttom className="Boto" variant="contained" color="secondary"  href="./Gestionmesas">   Gestion Orden </Buttom>
+         <Buttom className="Boto" variant="contained" color="secondary"  href="./Productos">   Productos  </Buttom>
+         <Buttom className="Boto"  variant="contained" color="secondary"  href="./Pedidos">   Pedidos   </Buttom>
+         
+      <Consumer>  
+      {({setAuth}) => (
+//llamado de la función que se ejecuta al hacer clic. Recibe como parámetro, el evento y la función que modifica el estado global
+          <form onSubmit={e=>handleSubmit(e, setAuth)}>    
+              <Buttom variant="contained" color="secondary" className = "cerrar"
+              type="submit">
+                Cerrar sesión
+              </Buttom>
+          </form>
+        )}
+
+      
+      </Consumer>  
         </Tabs>
       </AppBar>
         <div>
@@ -51,19 +67,6 @@ function Private(props) {
       </BrowserRouter>
     </React.Fragment>
 
-      <Consumer>  
-      {({setAuth}) => (
-//llamado de la función que se ejecuta al hacer clic. Recibe como parámetro, el evento y la función que modifica el estado global
-          <form onSubmit={e=>handleSubmit(e, setAuth)}>    
-              <Buttom
-              type="submit">
-                Cerrar sesión
-              </Buttom>
-          </form>
-        )}
-
-      
-      </Consumer>  
 
     </div>
 
