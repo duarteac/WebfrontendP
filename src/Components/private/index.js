@@ -9,6 +9,7 @@ import Gestionmesas from './Gestionmesas'
 import Productos from './Productos'
 import Pedidos from './Pedidos'
 import Producto from './Productos/Producto'
+import Crp from './Productos/crearproducto'
 import {AppBar, Tabs, Tab} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import {update} from './../../services/fire';
@@ -64,7 +65,7 @@ function Private(props) {
       <Route exact path="/Productos" render={()=><Productos/>} />
       <Route exact path="/Pedidos" render={()=><Pedidos/>} />
       <Route exact path="/Productos/Producto/:id" render={()=><Producto/>}/>
-      
+      <Route exact path="/crearproducto" render={()=><Crp/>} />
       </MuiThemeProvider>
       </BrowserRouter>
     </React.Fragment>

@@ -11,7 +11,8 @@ import Content from '@material-ui/core/Container';
 
 function Home() {
   return (
- <div className = "rt">
+ 
+ <body className = "rt">
   <Grid item xs={12} container className="gridhome">
     <div className="contenthome">
 
@@ -30,7 +31,8 @@ function Home() {
       </div>
       
   </Grid>
- </div>
+ </body>
+  
   );
 }
 

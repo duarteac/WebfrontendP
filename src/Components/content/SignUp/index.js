@@ -76,7 +76,7 @@ function SignUp(props) {
   return (
     <form  onSubmit={handleSubmit}>
     <div className="root">
-    <Grid
+    <Grid 
       className="grid"
       container
       direction="column"

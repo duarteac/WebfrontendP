@@ -137,10 +137,9 @@ function Productos() {
                   <TableCell align="center">ID</TableCell>
                   <TableCell align="center">Nombre</TableCell>
                   <TableCell align="center">Descripcion</TableCell>
-                  <TableCell align="center">Otro campo</TableCell>
-                  <TableCell align="center">costo</TableCell>
-                  <TableCell align="center">ver</TableCell>
+                  <TableCell align="center">Ver</TableCell>
                   <TableCell align="center">Borrar</TableCell>
+                 
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -176,13 +175,14 @@ function Productos() {
             </div>
 
           </Grid>
+       
         </main>
-        <footer className={classes.footer}>
+        <footer  className = "impro">
           <Typography variant="h6" align="center" gutterBottom>
             Footer
         </Typography>
           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            Something here to give the footer a purpose!
+            Todo los derechos reservados a Andres Duarte,Jesús García y Raul Julíao
         </Typography>
 
         </footer>

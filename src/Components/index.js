@@ -30,7 +30,7 @@ function Main() {
     setIsAuth(val);
   }
     return (
-      <main className="body3"    >
+      <body className="body3"    >
         
       
         <MuiThemeProvider theme={theme}>
@@ -41,11 +41,11 @@ function Main() {
  
                    isAuth ?  
                  
-                       <Private  />
+                       <Private/>
   
                           :  
                        
-                       <Public />
+                       <Public/>
  
                          )}
                     </Consumer>
@@ -55,7 +55,7 @@ function Main() {
                </MuiThemeProvider>
          
         
-      </main>
+      </body>
     )
   }
 

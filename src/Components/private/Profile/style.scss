@@ -3,13 +3,19 @@
     height: 100%;
     background :#ef5350 ;
     display:  flex;
-     
+     flex-direction: column;
     justify-content: center;
   
 align-items: center;
 align-content: center;
  vertical-align: center;
-
+ .impro{
+    width: 100%;
+    height: 100px;
+    border: 5px solid black;
+    background: white;
+    margin-top: 40px;
+}
 .conti{
     background: white;
     display:flex;
@@ -18,6 +24,7 @@ align-content: center;
     border-radius: 10px;
     width : 500px  ;
     height: 560px  ;
+    margin-top: 50px;
   }
   .Titulo{
       border:5px solid black;

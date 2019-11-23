@@ -20,6 +20,7 @@ import Crp from './../Productos/crearproducto';
 import {BrowserRouter,Route} from 'react-router-dom';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import {getorder} from './../../../services/fire';
+import TextField from '@material-ui/core/TextField';
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
@@ -52,12 +53,12 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
     marginBottom :  '40px',
- 
+    
   },
   button2: {
     margin: theme.spacing(1),
     marginTop :  '80px',
-    
+    marginLeft : '140px',
   },
   seeMore: {
     marginTop: theme.spacing(3),
@@ -130,13 +131,24 @@ return(
         <ClickAwayListener onClickAway={handleClickAway}>
         <div className={classes.wrapper}>
         <Button onClick={handleClick} variant="contained" color="primary" className={classes.button2 } >   
-        Crear Orden
+        ¿Desea crear una orden?
       </Button>
       {open ? (
          <aside className="asideord">
         
          <h2 className="opc">Opciones</h2>
-     
+         <form className="organizar2">
+              <TextField id="filled-basic" label="Pedido" variant="filled"    className="text"
+           
+              />
+               <TextField id="filled-basic" label="Descripcion" variant="filled"   className="text"
+              
+              />
+               <TextField  id="filled-basic" label="Costo" variant="filled"  className="text"
+           
+              />
+                 
+              </form>
          <Button variant="contained" color="primary" className={classes.button } href={'./crearproducto'}>   
          Crear Orden
        </Button>

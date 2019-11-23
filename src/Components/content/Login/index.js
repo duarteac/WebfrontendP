@@ -12,6 +12,7 @@ import {Consumer} from '../../../AuthContext';
 import Logo from './../../utils/logo';
 import Loading from './../../utils/loading';
 import { makeStyles } from '@material-ui/core/styles';
+ 
 import './style.scss';
 
 
@@ -36,14 +37,15 @@ function Login(props) {
               setVariant('success');
               setMessage('Usuario autorizado');
               setOpen(true);
+
               setTimeout(()=>{
     
-              
+               
                 sessionStorage.setItem('user',user.user.uid); 
                 setLoading(false); 
                 setAuth(true);                
               }, 2000); 
-          })
+            })
           .catch(err=>{
             setTimeout(()=>{
               setVariant('error');
@@ -131,7 +133,7 @@ function Login(props) {
                       size="large"
                       type="submit"
                       variant="contained"
-
+                    
                     >
                       
                       INICIAR SESIÓN

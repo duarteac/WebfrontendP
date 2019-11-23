@@ -11,6 +11,7 @@ import './style.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Typography from '@material-ui/core/Typography';
 const Profile = () => {
     const [name, setName] = useState('');
 
@@ -116,9 +117,21 @@ const Profile = () => {
              </Grid>
               </Grid>
           </Grid>
+   
           </MuiThemeProvider>
         </React.Fragment>
+        <footer  className = "impro">
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          Something here to give the footer a purpose!
+        </Typography>
+      
+      </footer>
         </div>
+        
+        
       );
  
 
