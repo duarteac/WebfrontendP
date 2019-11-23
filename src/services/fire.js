@@ -109,13 +109,14 @@ export const getUsers = () =>{
      
     })
   }
-  export const addorder = (orderid,name) =>{
+  export const addorder = (orderid,name,description,price) =>{
     return db
     .collection("order")
     .doc(orderid)
     .set({
-      nombre: name 
-     
+      nombre: name,
+      descripcion:description,
+      costo:price
     })
   }
 ///////////gets
@@ -137,23 +138,30 @@ export const getUsers = () =>{
     const success = await db.collection("Product").get()
     if (success) {
       success.forEach(doc => {
-          prodct.push(doc.data());
+          prodct.push({...doc.data(),id:doc.id});
           console.log(doc.data());
+          console.log(doc.id);
         });
       }
     return prodct 
   }
+  export const getoneproduct = async(productid) =>{
+    const oneprod = await db.collection("Product").doc(productid).get()
+    return {...oneprod.data(),id:oneprod.id}
+  }
 
-  export const getorder = () =>{
+  export const getorder = async() =>{
     const ordr = [];
-     db.collection("product").get().then(snapshot => {
-      snapshot.forEach(doc => {
-        ordr.push(doc.data());
-      });
-    })
-    .catch(err => {
-      console.log('Error getting orders', err);
-    });
+    const success = await db.collection("order").get()
+    if (success) {
+      success.forEach(doc => {
+          ordr.push({...doc.data(),id:doc.id});
+          console.log(doc.data());
+          console.log(doc.id);
+        });
+      }
+
+  
     return ordr 
   }
   

@@ -17,9 +17,10 @@ import Typography from '@material-ui/core/Typography';
 import { signout } from './../../../services/fire';
 import InputBase from '@material-ui/core/InputBase';
 import Crp from './crearproducto';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, useHistory } from 'react-router-dom';
 import { getproduct } from '../../../services/fire';
 import {Link as linkView} from 'react-router-dom';
+
 
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
@@ -78,7 +79,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 function Productos() {
+
+    let history = useHistory();
+
+    function handleClick(productid) {
+      history.push(`/Productos/Producto/${productid}`);
+    }
+  
+
   const classes = useStyles();
   const [products, setProduct] = useState([]);
   useEffect(() => {
@@ -135,7 +145,8 @@ function Productos() {
               </TableHead>
               <TableBody>
                 {products.map(product => (
-                  <TableRow key={product.nombre}>
+                  <TableRow key={product.productid}>
+                    <TableCell>{product.id}</TableCell>
                     <TableCell>{product.nombre}</TableCell>
                     <TableCell>{product.descripcion}</TableCell>
                     <TableCell>{product.precio}</TableCell>
@@ -144,8 +155,9 @@ function Productos() {
                     <TableCell align="right">{row.amount}</TableCell> */}
                     <TableCell>{<Button variant="contained"
                      color="primary"
-                      className={classes.button}>
-                      <linkView to ="/Producto">ver</linkView>
+                      className={classes.button}
+                      onClick={()=>handleClick(product.id)}>
+                       ver
       </Button>}</TableCell>
                     <TableCell>{<Button variant="contained"
                       color="secondary"

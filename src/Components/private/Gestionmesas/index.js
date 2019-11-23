@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button  from '@material-ui/core/Button'
 import Footer  from '@material-ui/core/TableFooter'
 import Grid from '@material-ui/core/Grid';
@@ -19,6 +19,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Crp from './../Productos/crearproducto';
 import {BrowserRouter,Route} from 'react-router-dom';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import {getorder} from './../../../services/fire';
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
@@ -93,6 +94,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Productos(){
+
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    
+    const getorders = async()=>{
+        const ord = await getorder();
+      setOrders(ord)
+      console.log(await getorder())
+    }
+    getorders()
+  },[]);
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -108,7 +121,7 @@ function Productos(){
 return(
 
     <React.Fragment>
-
+       
 <BrowserRouter>
 <Route   path="./crearproducto" render={()=><Crp/>} />
 
@@ -157,11 +170,13 @@ return(
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
+          {orders.map(order => (
+            <TableRow key={order.orderid}>
+              <TableCell>{order.id}</TableCell>
+              <TableCell>{order.nombre}</TableCell>
+              <TableCell>{order.descripcion}</TableCell>
+              {/* <TableCell>{order.costo}</TableCell> */}
+
        
               <TableCell>{ <Button variant="contained"  color="primary" className={classes.button} onClick={handleClick}  >
        ver

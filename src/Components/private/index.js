@@ -8,6 +8,7 @@ import Profile from './Profile';
 import Gestionmesas from './Gestionmesas'
 import Productos from './Productos'
 import Pedidos from './Pedidos'
+import Producto from './Productos/Producto'
 import {AppBar, Tabs, Tab} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import {update} from './../../services/fire';
@@ -35,17 +36,17 @@ function Private(props) {
         <Tabs className = "tabs"
         centered>
           <Logo className="loggo"></Logo>
-         <Buttom className="Boto2" variant="contained" color="secondary" href="./Profile"> Perfil  </Buttom>
-         <Buttom className="Boto" variant="contained" color="secondary"  href="./Gestionmesas">   Gestion Orden </Buttom>
-         <Buttom className="Boto" variant="contained" color="secondary"  href="./Productos">   Productos  </Buttom>
-         <Buttom className="Boto"  variant="contained" color="secondary"  href="./Pedidos">   Pedidos   </Buttom>
+         <Buttom className="Boto2" variant="contained" color="secondary" href="/Profile"> Perfil  </Buttom>
+         <Buttom className="Boto" variant="contained" color="secondary"  href="/Gestionmesas">   Gestion Orden </Buttom>
+         <Buttom className="Boto" variant="contained" color="secondary"  href="/Productos">   Productos  </Buttom>
+         <Buttom className="Boto"  variant="contained" color="secondary"  href="/Pedidos">   Pedidos   </Buttom>
          
       <Consumer>  
       {({setAuth}) => (
 //llamado de la función que se ejecuta al hacer clic. Recibe como parámetro, el evento y la función que modifica el estado global
           <form onSubmit={e=>handleSubmit(e, setAuth)}>    
               <Buttom variant="contained" color="secondary" className = "cerrar"
-              type="submit">
+              type="submit" href="/login">
                 Cerrar sesión
               </Buttom>
           </form>
@@ -62,6 +63,7 @@ function Private(props) {
       <Route exact path="/Gestionmesas" render={()=><Gestionmesas/>} />
       <Route exact path="/Productos" render={()=><Productos/>} />
       <Route exact path="/Pedidos" render={()=><Pedidos/>} />
+      <Route exact path="/Productos/Producto/:id" render={()=><Producto/>}/>
       
       </MuiThemeProvider>
       </BrowserRouter>
